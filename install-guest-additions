@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+echo '      ____              __        '
+echo '     / __ \   ____ _   / /      ___ '
+echo '    / / / /  / __ `/  / /      / _ \'
+echo '   / /_/ /  / /_/ /  / /___   /  __/'
+echo '  /_____/   \__,_/  /_____/   \___/ '
+echo ''
+echo '    +-+-+-+-+-+-+-+-+-+-+ +-+-+-+'
+echo '    |L|i|n|u|x|s|h|e|l|l| |C|L|I|'
+echo '    +-+-+-+-+-+-+-+-+-+-+ +-+-+-+'
+echo ''
+echo '  >> Author : David Lejeune'
+echo "  >> Created : 14/09/2017"
+echo ''
+echo ' ###################################'
+echo ' #    INSTALL VIRTUALBOX GUEST     #'
+echo ' #   ADDITIONS TO UBUNTU SERVER    #'
+echo ' #          16.04.03 x64           #'
+echo ' ###################################'
+echo ''
+echo ' Attention !!!!'
+echo ' Start the Ubuntu Server VM and insert the Guest Additions CD image (Devices menu, Install Guest Additions)'
+echo ''
+echo ' Mounting the CD Rom ...'
+sudo mount /dev/cdrom /media/cdrom
+echo 'Install scripts should be accessible in the /media/cdrom/ directory'
+ls -l /media/cdrom/
+echo 'Installing necessary build tools and build dependencies...'
+sudo apt-get install -y dkms build-essential linux-headers-generic linux-headers-$(uname -r)
+echo 'Building and installing the Guest Additions...'
+sudo /media/cdrom/VBoxLinuxAdditions.run
